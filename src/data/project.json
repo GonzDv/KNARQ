@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "casa-travertino",
+    "title": "Casa Travertino",
+    "category": "Arquitectura Residencial",
+    "details": {
+      "location": "Zapopan, Jalisco",
+      "year": "2026",
+      "area": "420 m²"
+    },
+    "descriptions": {
+      "short": "Un diálogo entre la solidez del travertino y la calidez de la luz natural.",
+      "concept": "Diseñada con un enfoque minimalista, esta residencia destaca por sus volúmenes limpios y la integración de la naturaleza en los interiores. La paleta de materiales se reduce a lo esencial: mármol travertino en fachada, acentos geométricos en acero negro y maderas claras que aportan calidez visual a las áreas comunes."
+    },
+    "images": {
+      "hero": "/assets/projects/casa-travertino/fachada-principal.jpg",
+      "gallery": [
+        {
+          "src": "/assets/projects/casa-travertino/sala-estar-amplia.jpg",
+          "alt": "Sala de estar minimalista con tonos neutros, panel de madera y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/casa-travertino/sala-estar-detalle.jpg",
+          "alt": "Detalle del área de entretenimiento con rieles de iluminación magnéticos",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/casa-travertino/escalera-interior.jpg",
+          "alt": "Escalera flotante de acero y madera con jardín interior de piedra blanca",
+          "orientation": "portrait"
+        }
+      ]
+    },
+    "credits": {
+      "photography": "Por definir"
+    }
+  }
+]

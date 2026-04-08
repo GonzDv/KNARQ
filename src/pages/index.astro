@@ -1,11 +1,42 @@
 ---
-import Welcome from '../components/Welcome.astro';
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/common/Header.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Inicio">
+  
+  <main class="h-dvh w-full flex flex-col overflow-hidden bg-white">
+    <div class="flex-none">
+      <Header />
+    </div>
+    <section class="relative w-full max-w-350 mx-auto group flex items-center justify-center ">
+      
+      <img 
+        src="/assets/projects/Project_01/FACHADA_FRONTAL_01.png" 
+        alt="Casa Travertino - Fachada Principal" 
+        class="w-full h-auto max-h-[80vh] object-cover object-bottom"
+      />
+
+      <button class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full border border-white/60 text-white hover:bg-white hover:text-black transition-colors opacity-0 group-hover:opacity-100 duration-300 md:left-8">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
+      </button>
+      
+      <button class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full border border-white/60 text-white hover:bg-white hover:text-black transition-colors opacity-0 group-hover:opacity-100 duration-300 md:right-8">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+      </button>
+
+    </section>
+
+    <section class="mt-2 flex flex-col items-center text-center">
+      <h1 class="text-2xl md:text-3xl font-light text-[#1A1B1C] mb-2">
+        Casa Travertino
+      </h1>
+      
+      <a href="/proyectos/casa-travertino" class="px-8 py-3 border border-[#1A1B1C] rounded-full text-sm font-medium tracking-widest text-[#1A1B1C] uppercase hover:bg-[#1A1B1C] hover:text-white transition-colors duration-300">
+        Ver Obra
+      </a>
+    </section>
+
+  </main>
 </Layout>
