@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  
+  const projects = [
+    {
+      slug: 'casa-travertino',
+      title: 'Casa Travertino',
+      category: 'Arquitectura Residencial',
+      image: '/assets/projects/Project_01/FACHADA_FRONTAL_01.png'
+    },
+    {
+      slug: 'luz-y-espacio',
+      title: 'Luz y Espacio',
+      category: 'Interiorismo',
+      image: '/assets/projects/Project_01/SALA_01.png'
+    }
+  ];
+
+  return projects.map((project) => {
+    return {
+      params: { slug: project.slug },
+      props: { project }, 
+    };
+  });
+}
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.title} | KNARQ`}>
+  
+  <main class="w-full min-h-screen pt-32 px-4 md:px-12 bg-white">
+    <h1 class="text-4xl font-light text-[#1A1B1C] mb-4">{project.title}</h1>
+    <p class="text-gray-400 tracking-widest uppercase text-sm mb-12">{project.category}</p>
+    
+    <img 
+      src={project.image} 
+      alt={project.title}
+      class="w-full max-w-4xl max-h-[70vh] object-contain bg-gray-100"
+    />
+  </main>
+
+</Layout>
