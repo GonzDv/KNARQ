@@ -1,0 +1,84 @@
+---
+// src/components/project/ProjectGrid.astro
+
+// Simulamos los datos basándonos en tus fotos para el mockup visual
+const projects = [
+  {
+    id: "01",
+    title: "Casa Travertino",
+    category: "Arquitectura Residencial",
+    image: "/assets/projects/Project_01/FACHADA_FRONTAL_01.png",
+    // Clases de Tailwind para controlar el ancho asimétrico y el desfase
+    gridClass: "col-span-1 md:col-span-7",
+    aspectClass: "aspect-[4/3]"
+  },
+  {
+    id: "02",
+    title: "Luz y Espacio",
+    category: "Interiorismo",
+    image: "/assets/projects/Project_01/SALA_01.png",
+    gridClass: "col-span-1 md:col-span-5 md:mt-32", // md:mt-32 empuja esta foto hacia abajo
+    aspectClass: "aspect-[3/4]"
+  },
+  {
+    id: "03",
+    title: "Jardín Interior",
+    category: "Diseño Espacial",
+    image: "/assets/projects/Project_01/ESCALERA_01.png",
+    gridClass: "col-span-1 md:col-span-4",
+    aspectClass: "aspect-[3/4]"
+  },
+  {
+    id: "04",
+    title: "Detalles en Madera",
+    category: "Interiorismo",
+    image: "/assets/projects/Project_01/SALA_02.png",
+    gridClass: "col-span-1 md:col-span-8 md:-mt-16", // md:-mt-16 sube esta foto ligeramente
+    aspectClass: "aspect-[16/9]"
+  }
+];
+---
+
+<section class="w-full bg-white px-4 py-24 md:px-12 md:py-32">
+  
+  <div class="max-w-350 mx-auto mb-16 md:mb-24 flex justify-between items-end border-b border-gray-200 pb-8">
+    <h2 class="text-3xl md:text-5xl font-light text-[#1A1B1C]">
+      Proyectos <br/> <span class="text-gray-400">Seleccionados</span>
+    </h2>
+    <a href="/proyectos" class="hidden md:inline-block text-sm uppercase tracking-widest hover:text-gray-500 transition-colors">
+      Ver todos +
+    </a>
+  </div>
+
+  <div class="max-w-350 mx-auto grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-x-12 lg:gap-x-16">
+    
+    {projects.map((project) => (
+      <a href={`/proyectos/${project.id}`} class={`group block ${project.gridClass}`}>
+        
+        <div class={`relative w-full overflow-hidden bg-gray-100 ${project.aspectClass}`}>
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </div>
+
+        <div class="mt-6 flex justify-between items-start">
+          <div>
+            <h3 class="text-lg md:text-xl font-light text-[#1A1B1C] mb-1 group-hover:text-gray-600 transition-colors">
+              {project.title}
+            </h3>
+            <p class="text-xs tracking-widest uppercase text-gray-400">
+              {project.category}
+            </p>
+          </div>
+          <span class="text-sm font-light text-gray-300 group-hover:text-[#1A1B1C] transition-colors">
+            {project.id}
+          </span>
+        </div>
+
+      </a>
+    ))}
+
+  </div>
+</section>
