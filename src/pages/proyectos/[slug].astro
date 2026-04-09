@@ -1,44 +1,91 @@
 ---
+// src/pages/proyectos/[slug].astro
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/common/Header.astro';
+import projects from '../../data/project.json';
 
 export async function getStaticPaths() {
-  
-  const projects = [
-    {
-      slug: 'casa-travertino',
-      title: 'Casa Travertino',
-      category: 'Arquitectura Residencial',
-      image: '/assets/projects/Project_01/FACHADA_FRONTAL_01.png'
-    },
-    {
-      slug: 'luz-y-espacio',
-      title: 'Luz y Espacio',
-      category: 'Interiorismo',
-      image: '/assets/projects/Project_01/SALA_01.png'
-    }
-  ];
-
-  return projects.map((project) => {
-    return {
-      params: { slug: project.slug },
-      props: { project }, 
-    };
-  });
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
 }
+
 const { project } = Astro.props;
 ---
 
 <Layout title={`${project.title} | KNARQ`}>
-  
-  <main class="w-full min-h-screen pt-32 px-4 md:px-12 bg-white">
-    <h1 class="text-4xl font-light text-[#1A1B1C] mb-4">{project.title}</h1>
-    <p class="text-gray-400 tracking-widest uppercase text-sm mb-12">{project.category}</p>
-    
-    <img 
-      src={project.image} 
-      alt={project.title}
-      class="w-full max-w-4xl max-h-[70vh] object-contain bg-gray-100"
-    />
-  </main>
+  <Header />
 
+  <main class="w-full bg-white pb-32">
+    
+    <section class="w-full max-w-350 mx-auto px-4 md:px-12 pt-4 md:pt-">
+      <div class="relative w-full flex justify-center bg-gray-50 overflow-hidden">
+        <img 
+          src={project.images.hero} 
+          alt={`Fotografía principal de ${project.title}`} 
+          class="w-full h-auto max-h-[80vh] object-cover object-bottom "
+        />
+      </div>
+    </section>
+
+    <section class="w-full max-w-350 mx-auto px-4 md:px-12 mt-16 md:mt-24">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="md:col-span-4 mb-8 md:mb-12">
+          <h1 class="text-4xl md:text-5xl font-light text-[#1A1B1C] mb-3">{project.title}</h1>
+          <p class="text-xs text-gray-400 uppercase tracking-widest">{project.category}</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
+        <div class="md:col-span-4 border-t border-gray-200 pt-6 md:pt-8">
+          <ul class="flex flex-col gap-5">
+            <li class="flex justify-between items-end">
+              <span class="text-xs uppercase tracking-widest text-gray-400">Ubicación</span>
+              <span class="text-sm font-medium text-[#1A1B1C] text-right">{project.details.location}</span>
+            </li>
+            <li class="flex justify-between items-end">
+              <span class="text-xs uppercase tracking-widest text-gray-400">Año</span>
+              <span class="text-sm font-medium text-[#1A1B1C] text-right">{project.details.year}</span>
+            </li>
+            <li class="flex justify-between items-end">
+              <span class="text-xs uppercase tracking-widest text-gray-400">Superficie</span>
+              <span class="text-sm font-medium text-[#1A1B1C] text-right">{project.details.area}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-7 md:col-start-6 md:pt-8">
+          <p class="text-base md:text-lg font-light leading-relaxed text-gray-600 text-justify md:text-left">
+            {project.descriptions.concept}
+          </p>
+        </div>
+        
+      </div>
+    </section>
+
+   <section class="max-w-350 mx-auto px-6 pb-32 mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
+        {project.images.gallery.map((img, index) => (
+          <div class={`
+            overflow-hidden bg-gray-50 
+            ${img.orientation === 'portrait' ? 'md:col-span-5' : 'md:col-span-7'}
+            ${index % 2 !== 0 ? 'md:mt-32' : ''}
+          `}>
+            <img 
+              src={img.src} 
+              alt={img.alt} 
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-24 text-center">
+        <p class="text-xs tracking-widest text-gray-400 uppercase">Fotografía</p>
+        <p class="text-sm font-light mt-2">{project.credits.photography}</p>
+      </div>
+    </section>
+
+  </main>
 </Layout>
