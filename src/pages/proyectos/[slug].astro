@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { project } = Astro.props;
+const isConcretoHero = project.slug === 'casa-concreto';
 ---
 
 <Layout title={`${project.title} | KNARQ`}>
@@ -21,10 +22,11 @@ const { project } = Astro.props;
     
     <section class="w-full max-w-350 mx-auto px-4 md:px-12 pt-4 md:pt-">
       <div class="relative w-full flex justify-center bg-gray-50 overflow-hidden">
+        
         <img 
           src={project.images.hero} 
           alt={`Fotografía principal de ${project.title}`} 
-          class="w-full h-auto max-h-[80vh] object-cover object-bottom"
+          class={`w-full h-auto max-h-[80vh] object-cover object-bottom ${isConcretoHero ? 'max-h-screen object-bottom' : 'h-auto'}`}
         />
       </div>
     </section>
@@ -64,28 +66,50 @@ const { project } = Astro.props;
     </section>
 
    <section class="w-full max-w-350 mx-auto px-4 md:px-12 mt-24 md:mt-32">
+      
+      <div class="columns-1 md:columns-2 gap-4 md:gap-8">
+        
+        {project.images.gallery.map((img, i) => {
+          
+          // Mantenemos la regla especial solo para Casa Travertino
+          const isTravertinoConcept = i === 2 && project.slug === 'casa-travertino';
+          
+          // Agregamos una regla especial sutil para Casa Concreto como detalle
+          const isConcretoDetails = i === 9 && project.slug === 'casa-concreto';
+          const concretoImg2 = i === 10 && project.slug === 'casa-concreto';
 
-      <div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-3 gap-4 md:gap-8">
-        {project.images.gallery.map((img, i) => (
-          <div
-            class:list={[
-              "relative overflow-hidden bg-gray-50 group shadow-sm hover:shadow-lg transition-shadow duration-300",
-              i === 1 && "md:row-span-2",
-              i === 3 && "md:row-span-1 md:row-start-2",
-              i === 4 && "md:col-start-1 md:row-start-3",
-            ]}
-          >
-            <img
-              src={img.src}
-              alt={img.alt}
-              class="w-full h-full block object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              loading="lazy"
-            />
-          </div>
-        ))}
+          return (
+            <div class="relative overflow-hidden bg-gray-50 group mb-4 md:mb-8 break-inside-avoid shadow-sm hover:shadow-lg transition-all duration-700 ease-out">
+              <img 
+                src={img.src} 
+                alt={img.alt} 
+                class={`w-full h-auto block object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
+                  isConcretoDetails  ? 'h-100 md:h-134' : 'h-auto' } ${
+                  isTravertinoConcept ? 'h-100 md:h-100' : 'h-auto' } ${
+                  concretoImg2 ? 'h-100 md:h-155' : 'h-auto'
+                }
+                  `}
+                loading="lazy"
+              />
+
+              {/* Si es la imagen del concepto de Casa Travertino, mostramos un pequeño badge */}
+              {isConcretoDetails  && (
+                <div class="absolute top-2 left-2 bg-[#1A1B1C] text-white text-xs uppercase px-2 py-1 rounded opacity-80">
+                  Concepto
+                </div>
+              )}
+              {concretoImg2  && (
+                <div class="absolute top-2 left-2 bg-[#1A1B1C] text-white text-xs uppercase px-2 py-1 rounded opacity-80">
+                  Detalles
+                </div>
+              )}
+
+              {/* Si es la imagen de detalles de Casa Concreto, mostramos un pequeño badge */}
+            </div>
+          );
+        })}
+
       </div>
-
-
       
       <div class="mt-24 text-center">
         <p class="text-xs tracking-widest text-gray-400 uppercase">Fotografía</p>

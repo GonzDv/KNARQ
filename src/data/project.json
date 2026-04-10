@@ -22,26 +22,25 @@
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_01/ESCALERA_01.webp",
-          "alt": "Detalle del área de entretenimiento con rieles de iluminación magnéticos",
-          "orientation": "portrait"
-        },
-        {
-          "src": "/assets/projects/Project_01/SALA_01.webp",
-          "alt": "Escalera flotante de acero y madera con jardín interior de piedra blanca",
-          "orientation": "landscape"
-        },
-        {
           "src": "/assets/projects/Project_01/SALA_02.webp",
-          "alt": "Cocina moderna con isla central de mármol travertino y gabinetes de madera clara",
+          "alt": "Detalle del área de entretenimiento con rieles de iluminación magnéticos",
           "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_01/ESCALERA_01.webp",
+          "alt": "Escalera flotante de acero y madera con jardín interior de piedra blanca",
+          "orientation": "portrait"
         },
         {
           "src": "/assets/projects/Project_01/VESTIDOR_01.webp",
           "alt": "Vestidor elegante con iluminación empotrada y acabados en madera clara",
           "orientation": "portrait"
+        },
+        {
+          "src": "/assets/projects/Project_01/SALA_01.webp",
+          "alt": "Cocina moderna con isla central de mármol travertino y gabinetes de madera clara",
+          "orientation": "portrait"
         }
-        
       ]
     },
     "credits": {
@@ -63,48 +62,83 @@
       "concept": "Este proyecto residencial explora el estilo brutalista, donde el concreto aparente no solo es un elemento estructural, sino una declaración estética de fuerza y atemporalidad. Para contrarrestar su masividad, se introdujeron generosos acentos de madera de nogal, iluminación cálida indirecta y patios internos que integran la naturaleza, creando espacios interiores íntimos y acogedores sin perder la esencia arquitectónica."
     },
     "images": {
-      "hero": "/assets/projects/Project_02/1.2.webp",
+      "hero": "/assets/projects/Project_02/FACHADA_FRONTAL_01_2.webp",
       "gallery": [
         {
-          "src": "/assets/projects/Project_02/1.1.webp",
+          "src": "/assets/projects/Project_02/FACHADA_02.webp",
           "alt": "Detalle de la puerta principal de madera y muro de concreto",
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_02/1.3.webp",
+          "src": "/assets/projects/Project_02/FACHADA_03.webp",
+          "alt": "Detalle de la puerta principal de madera y muro de concreto",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/FACHADA_04.webp",
           "alt": "Vista interior del acceso principal con techo de concreto a gran altura",
           "orientation": "portrait"
         },
         {
-          "src": "/assets/projects/Project_02/2.1.webp",
+          "src": "/assets/projects/Project_02/FACHADA_PUERTA_01.webp",
+          "alt": "Vista interior del acceso principal con techo de concreto a gran altura",
+          "orientation": "portrait"
+        },
+        {
+          "src": "/assets/projects/Project_02/SALA_01.webp",
           "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_02/2.4.webp",
+          "src": "/assets/projects/Project_02/SALA_02.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/SALA_03.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/COMEDOR_01.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/COMEDOR_02.webp",
           "alt": "Cocina moderna con gran isla central de concreto pulido y carpintería de madera de nogal",
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_02/3.0.webp",
+          "src": "/assets/projects/Project_02/COMEDOR_03.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/CUARTO_01.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/CUARTO_02.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/VESTIDOR_01.webp",
           "alt": "Detalle de vanidad con espejo circular retroiluminado y texto 'BLOQUE' en la pared",
           "orientation": "portrait"
         },
         {
-          "src": "/assets/projects/Project_02/3.1.webp",
+          "src": "/assets/projects/Project_02/VESTIDOR_02.webp",
           "alt": "Recámara principal con paneles de madera, cabecera retroiluminada y techo de concreto expuesto",
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_02/3.2.webp",
+          "src": "/assets/projects/Project_02/BAÑO_01.webp",
           "alt": "Baño principal con vanidad flotante de madera y espejos circulares retroiluminados",
           "orientation": "portrait"
-        },
-        {
-          "src": "/assets/projects/Project_02/3.4.webp",
-          "alt": "Detalle de textura de madera en gabinete de baño",
-          "orientation": "portrait"
-        } 
+        }
       ]
     },
     "credits": {
