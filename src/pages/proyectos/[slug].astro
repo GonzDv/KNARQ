@@ -72,39 +72,54 @@ const isConcretoHero = project.slug === 'casa-concreto';
         {project.images.gallery.map((img, i) => {
           
           // Mantenemos la regla especial solo para Casa Travertino
-          const isTravertinoConcept = i === 2 && project.slug === 'casa-travertino';
-          
+          const travertinoImg1 = i === 2 && project.slug === 'casa-travertino';
+          const travertinoImg2 = i === 3 && project.slug === 'casa-travertino';
           // Agregamos una regla especial sutil para Casa Concreto como detalle
-          const isConcretoDetails = i === 9 && project.slug === 'casa-concreto';
-          const concretoImg2 = i === 10 && project.slug === 'casa-concreto';
+          const concretoImg1 = i === 11 && project.slug === 'casa-concreto';
+          const concretoImg2 = i === 9 && project.slug === 'casa-concreto';
+          const concretoImg3 = i === 12 && project.slug === 'casa-concreto';
+          const concretoImg4 = i === 3 && project.slug === 'casa-concreto';
+
 
           return (
             <div class="relative overflow-hidden bg-gray-50 group mb-4 md:mb-8 break-inside-avoid shadow-sm hover:shadow-lg transition-all duration-700 ease-out">
               <img 
                 src={img.src} 
                 alt={img.alt} 
-                class={`w-full h-auto block object-cover transition-transform duration-700 ease-out group-hover:scale-105 ${
-                  isConcretoDetails  ? 'h-100 md:h-134' : 'h-auto' } ${
-                  isTravertinoConcept ? 'h-100 md:h-100' : 'h-auto' } ${
-                  concretoImg2 ? 'h-100 md:h-155' : 'h-auto'
-                }
+                class={`w-full h-auto block object-cover transition-transform duration-700 ease-out group-hover:scale-105
+                   ${
+                  travertinoImg1 ? 'h-100 md:h-114' : 'h-auto' } ${
+                  travertinoImg2 ? 'h-100 md:h-210' : 'h-auto'} ${ 
+                  concretoImg1 ? 'h-100 md:h-120' : 'h-auto' } ${
+                  concretoImg2 ? 'h-100 md:h-106' : 'h-auto'} ${
+                  concretoImg3 ? 'h-100 md:h-177' : 'h-auto'} ${
+                  concretoImg4 ? 'h-100 md:h-170' : 'h-auto'} 
+
+
                   `}
                 loading="lazy"
               />
 
-              {/* Si es la imagen del concepto de Casa Travertino, mostramos un pequeño badge */}
-              {isConcretoDetails  && (
+              {concretoImg1  && (
                 <div class="absolute top-2 left-2 bg-[#1A1B1C] text-white text-xs uppercase px-2 py-1 rounded opacity-80">
-                  Concepto
+                  img1
                 </div>
               )}
               {concretoImg2  && (
                 <div class="absolute top-2 left-2 bg-[#1A1B1C] text-white text-xs uppercase px-2 py-1 rounded opacity-80">
-                  Detalles
+                  img2
                 </div>
               )}
-
-              {/* Si es la imagen de detalles de Casa Concreto, mostramos un pequeño badge */}
+              {concretoImg3  && (
+                <div class="absolute top-2 left-2 bg-[#1A1B1C] text-white text-xs uppercase px-2 py-1 rounded opacity-80">
+                  img3
+                </div>
+              )}
+              {concretoImg4  && (
+                <div class="absolute top-2 left-2 bg-[#1A1B1C] text-white text-xs uppercase px-2 py-1 rounded opacity-80">
+                  img4
+                </div>
+              )}
             </div>
           );
         })}

@@ -2,43 +2,98 @@
 // src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/common/Header.astro';
-import ProjectGrid from '../components/project/ProjectGrid.astro';
+
+// Importamos tu JSON con todos los proyectos
+import projects from '../data/project.json';
 ---
 
-<Layout title="Inicio">
-  
-  <main class="h-dvh w-full flex flex-col overflow-hidden bg-white">
+<Layout title="Inicio | KNARQ">
+  <div class="h-dvh w-full flex flex-col overflow-hidden bg-white">
+    
     <div class="flex-none">
       <Header />
     </div>
-    <section class="relative w-full max-w-350 mx-auto group flex items-center justify-center ">
+    
+    <main class="flex-1 min-h-0 w-full relative group">
       
-      <img 
-        src="/assets/projects/Project_01/FACHADA_FRONTAL_01.webp" 
-        alt="Casa Travertino - Fachada Principal" 
-        class="w-full h-auto max-h-[80vh] object-cover object-bottom"
-      />
+      {projects.map((project, index) => (
+        <div 
+          class={`slide absolute inset-0 flex flex-col transition-opacity duration-1000 ease-in-out ${
+            index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+          }`}
+          data-index={index}
+        >
+          <div class="flex-1 min-h-0 w-full max-w-350 mx-auto relative flex items-center justify-center px-4 md:px-12">
+            <img 
+              src={project.images.hero} 
+              alt={`Fotografía de ${project.title}`} 
+              class="w-full h-full object-contain drop-shadow-sm"
+              loading={index === 0 ? "eager" : "lazy"} 
+            />
+          </div>
 
-      <button class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full border border-white/60 text-white hover:bg-white hover:text-black transition-colors opacity-0 group-hover:opacity-100 duration-300 md:left-8">
+          <section class="flex-none pt-6 pb-8 md:pb-12 flex flex-col items-center text-center">
+            <h1 class="text-2xl md:text-3xl font-light text-[#1A1B1C] mb-4">
+              {project.title}
+            </h1>
+            <a 
+              href={`/proyectos/${project.slug}`} 
+              class="px-8 py-3 border border-[#1A1B1C] rounded-full text-sm font-medium tracking-widest text-[#1A1B1C] uppercase hover:bg-[#1A1B1C] hover:text-white transition-colors duration-300 pointer-events-auto"
+            >
+              Ver Obra
+            </a>
+          </section>
+        </div>
+      ))}
+
+      <button id="prevBtn" class="absolute left-4 top-[45%] -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/20 text-black hover:bg-black hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300 bg-white/60 backdrop-blur-md z-50 md:left-8">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
       </button>
       
-      <button class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full border border-white/60 text-white hover:bg-white hover:text-black transition-colors opacity-0 group-hover:opacity-100 duration-300 md:right-8">
+      <button id="nextBtn" class="absolute right-4 top-[45%] -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/20 text-black hover:bg-black hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300 bg-white/60 backdrop-blur-md z-50 md:right-8">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
       </button>
 
-    </section>
-
-    <section class="mt-2 flex flex-col items-center text-center">
-      <h1 class="text-2xl md:text-3xl font-light text-[#1A1B1C] mb-2">
-        Casa Travertino
-      </h1>
-      
-      <a href="/proyectos/casa-travertino" class="px-8 py-3 border border-[#1A1B1C] rounded-full text-sm font-medium tracking-widest text-[#1A1B1C] uppercase hover:bg-[#1A1B1C] hover:text-white transition-colors duration-300">
-        Ver Obra
-      </a>
-    </section>
-
-  </main>
-  <ProjectGrid />
+    </main>
+  </div>
 </Layout>
+
+<script>
+  // En Astro, los scripts se ejecutan en el navegador del cliente automáticamente
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+
+    // Función principal para cambiar de diapositiva
+    function goToSlide(index = 0) {
+      // Lógica de bucle: si pasas del último, vuelve al primero y viceversa
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+
+      // Actualizamos las clases CSS de cada slide
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          // Slide Activo: Se hace visible y capta los clics
+          slide.classList.remove('opacity-0', 'z-0', 'pointer-events-none');
+          slide.classList.add('opacity-100', 'z-10');
+        } else {
+          // Slides Inactivos: Se ocultan y se vuelven "fantasmas" a los clics
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'z-0', 'pointer-events-none');
+        }
+      });
+
+      currentIndex = index;
+    }
+
+    // Event Listeners para los botones
+    prevBtn?.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn?.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    setInterval(() => {
+       goToSlide(currentIndex + 1);
+    }, 10000);
+  });
+</script>

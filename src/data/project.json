@@ -22,25 +22,26 @@
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_01/SALA_02.webp",
+          "src": "/assets/projects/Project_01/ESCALERA_01.webp",
           "alt": "Detalle del área de entretenimiento con rieles de iluminación magnéticos",
           "orientation": "landscape"
-        },
-        {
-          "src": "/assets/projects/Project_01/ESCALERA_01.webp",
-          "alt": "Escalera flotante de acero y madera con jardín interior de piedra blanca",
-          "orientation": "portrait"
-        },
-        {
-          "src": "/assets/projects/Project_01/VESTIDOR_01.webp",
-          "alt": "Vestidor elegante con iluminación empotrada y acabados en madera clara",
-          "orientation": "portrait"
         },
         {
           "src": "/assets/projects/Project_01/SALA_01.webp",
           "alt": "Cocina moderna con isla central de mármol travertino y gabinetes de madera clara",
           "orientation": "portrait"
+        },
+        {
+          "src": "/assets/projects/Project_01/SALA_02.webp",
+          "alt": "Escalera flotante de acero y madera con jardín interior de piedra blanca",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_01/VESTIDOR_01.webp",
+          "alt": "Vestidor elegante con iluminación empotrada y acabados en madera clara",
+          "orientation": "portrait"
         }
+        
       ]
     },
     "credits": {
@@ -75,42 +76,17 @@
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_02/FACHADA_04.webp",
+          "src": "/assets/projects/Project_02/COMEDOR_01.webp",
           "alt": "Vista interior del acceso principal con techo de concreto a gran altura",
           "orientation": "portrait"
-        },
-        {
-          "src": "/assets/projects/Project_02/FACHADA_PUERTA_01.webp",
-          "alt": "Vista interior del acceso principal con techo de concreto a gran altura",
-          "orientation": "portrait"
-        },
-        {
-          "src": "/assets/projects/Project_02/SALA_01.webp",
-          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
-          "orientation": "landscape"
         },
         {
           "src": "/assets/projects/Project_02/SALA_02.webp",
-          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
-          "orientation": "landscape"
+          "alt": "Vista interior del acceso principal con techo de concreto a gran altura",
+          "orientation": "portrait"
         },
         {
-          "src": "/assets/projects/Project_02/SALA_03.webp",
-          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
-          "orientation": "landscape"
-        },
-        {
-          "src": "/assets/projects/Project_02/COMEDOR_01.webp",
-          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
-          "orientation": "landscape"
-        },
-        {
-          "src": "/assets/projects/Project_02/COMEDOR_02.webp",
-          "alt": "Cocina moderna con gran isla central de concreto pulido y carpintería de madera de nogal",
-          "orientation": "landscape"
-        },
-        {
-          "src": "/assets/projects/Project_02/COMEDOR_03.webp",
+          "src": "/assets/projects/Project_02/VESTIDOR_01.webp",
           "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
           "orientation": "landscape"
         },
@@ -120,17 +96,42 @@
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_02/CUARTO_02.webp",
+          "src": "/assets/projects/Project_02/VESTIDOR_02.webp",
           "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
           "orientation": "landscape"
         },
         {
-          "src": "/assets/projects/Project_02/VESTIDOR_01.webp",
+          "src": "/assets/projects/Project_02/FACHADA_04.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/FACHADA_PUERTA_01.webp",
+          "alt": "Cocina moderna con gran isla central de concreto pulido y carpintería de madera de nogal",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/COMEDOR_03.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/COMEDOR_02.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/SALA_03.webp",
+          "alt": "Sala de estar principal con doble altura, muros de concreto aparente y mobiliario de diseño",
+          "orientation": "landscape"
+        },
+        {
+          "src": "/assets/projects/Project_02/SALA_01.webp",
           "alt": "Detalle de vanidad con espejo circular retroiluminado y texto 'BLOQUE' en la pared",
           "orientation": "portrait"
         },
         {
-          "src": "/assets/projects/Project_02/VESTIDOR_02.webp",
+          "src": "/assets/projects/Project_02/CUARTO_02.webp",
           "alt": "Recámara principal con paneles de madera, cabecera retroiluminada y techo de concreto expuesto",
           "orientation": "landscape"
         },
