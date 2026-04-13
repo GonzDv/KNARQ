@@ -55,11 +55,15 @@ const isConcretoHero = project.slug === 'casa-concreto';
             </li>
           </ul>
         </div>
+        <div class="md:col-span-7 md:col-start-6 flex flex-col gap-8 md:gap-12">
 
-        <div class="md:col-span-7 md:col-start-6 md:pt-8">
-          <p class="text-base md:text-lg font-light leading-relaxed text-gray-600 text-justify md:text-left">
-            {project.descriptions.concept}
-          </p>
+          <div class="flex flex-col gap-6 pl-6 md:pl-8">
+              {(Array.isArray(project.descriptions.concept) ? project.descriptions.concept : [project.descriptions.concept]).map((p) => (
+                <p class="text-base md:text-lg font-light leading-relaxed text-gray-500">
+                  {p}
+                </p>
+              ))}
+          </div>
         </div>
         
       </div>
@@ -72,8 +76,8 @@ const isConcretoHero = project.slug === 'casa-concreto';
         {project.images.gallery.map((img, i) => {
           
 
-          const travertinoImg1 = i === 2 && project.slug === 'casa-travertino';
-          const travertinoImg2 = i === 3 && project.slug === 'casa-travertino';
+          const travertinoImg1 = i === 2 && project.slug === 'la-quebrada';
+          const travertinoImg2 = i === 3 && project.slug === 'la-quebrada';
 
           const concretoImg1 = i === 11 && project.slug === 'casa-concreto';
           const concretoImg2 = i === 9 && project.slug === 'casa-concreto';
@@ -120,6 +124,7 @@ const isConcretoHero = project.slug === 'casa-concreto';
                   img4
                 </div>
               )}*/}
+              
             </div>
           );
         })}
