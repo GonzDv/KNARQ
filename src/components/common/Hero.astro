@@ -14,12 +14,13 @@ import projects from '../../data/project.json';
         <div class="w-full h-full md:h-[75vh] px-0 md:px-12 flex flex-col items-center justify-start md:justify-center max-w-400 mx-auto">
           
           <div class="w-full flex justify-center mb-6 md:mb-10 h-[65vh] md:h-[75vh] pt-15 md:pt-20">
-              <a href={`/proyectos/${project.slug}`}>
+              <a href={`/proyectos/${project.slug}`} class="w-full h-full object-cover drop-shadow-none md:drop-shadow-2xl select-none [-webkit-touch-callout:none] pointer-events-none">
             <img 
               src={project.images.hero} 
               alt={`Fotografía de ${project.title}`} 
               class="w-full h-full object-cover md:object-contain drop-shadow-none md:drop-shadow-2xl"
-              loading={index === 0 ? "eager" : "lazy"} 
+              loading={index === 0 ? "eager" : "lazy"}
+              draggable="false"
             />
             </a>
           </div>

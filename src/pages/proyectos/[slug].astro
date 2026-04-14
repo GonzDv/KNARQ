@@ -90,7 +90,7 @@ const isConcretoHero = project.slug === 'casa-concreto';
               <img 
                 src={img.src} 
                 alt={img.alt} 
-                class={`w-full h-auto block object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none
+                class={`w-full h-auto block object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none [-webkit-touch-callout:none] pointer-events-none
                   ${
                   travertinoImg1 ? 'h-100 md:h-114' : 'h-auto' } ${
                   travertinoImg2 ? 'h-100 md:h-210' : 'h-auto'} ${ 
@@ -101,6 +101,7 @@ const isConcretoHero = project.slug === 'casa-concreto';
 
 
                   `}
+                draggable="false"
                 loading="lazy"
               />
               {/* Identificar imagenes
