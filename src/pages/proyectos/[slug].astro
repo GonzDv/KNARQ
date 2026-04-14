@@ -26,8 +26,9 @@ const isConcretoHero = project.slug === 'casa-concreto';
         <img 
           src={project.images.hero} 
           alt={`Fotografía principal de ${project.title}`} 
-          class={`w-full h-auto max-h-[80vh] object-cover object-bottom ${isConcretoHero ? 'max-h-screen object-bottom' : 'h-auto'}`}
+          class={`w-full h-auto max-h-[80vh] object-cover object-bottom ${isConcretoHero ? 'max-h-screen object-bottom' : 'h-auto'} block select-none [-webkit-touch-callout:none] pointer-events-none`}
         />
+        <div class="absolute inset-0 z-20 bg-transparent [-webkit-touch-callout:none]" oncontextmenu="return false;"></div>
       </div>
     </section>
 
