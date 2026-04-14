@@ -2,8 +2,7 @@
 import projects from '../../data/project.json';
 ---
 <main class="relative w-full h-dvh bg-white flex flex-col">
-  
-  <div class="flex-1 relative w-full h-full">
+  <div class="group flex-1 relative w-full h-full">
     
     {projects.map((project, index) => (
       <div 
@@ -15,9 +14,7 @@ import projects from '../../data/project.json';
         <div class="w-full h-full md:h-[75vh] px-0 md:px-12 flex flex-col items-center justify-start md:justify-center max-w-400 mx-auto">
           
           <div class="w-full flex justify-center mb-6 md:mb-10 h-[65vh] md:h-[75vh] pt-15 md:pt-20">
-              <a 
-              href={`/proyectos/${project.slug}`} 
-              >
+              <a href={`/proyectos/${project.slug}`}>
             <img 
               src={project.images.hero} 
               alt={`Fotografía de ${project.title}`} 
@@ -43,11 +40,11 @@ import projects from '../../data/project.json';
       </div>
     ))}
 
-    <button id="prevBtn" class="absolute left-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300 bg-white/50 backdrop-blur-sm z-50 md:left-8">
+    <button id="prevBtn" class="absolute left-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all duration-300 bg-white/50 backdrop-blur-sm z-50 md:left-8 opacity-40 active:opacity-100 md:opacity-0 md:group-hover:opacity-100">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
     </button>
     
-    <button id="nextBtn" class="absolute right-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all opacity-0 group-hover:opacity-100 duration-300 bg-white/50 backdrop-blur-sm z-50 md:right-8">
+    <button id="nextBtn" class="absolute right-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all duration-300 bg-white/50 backdrop-blur-sm z-50 md:right-8 opacity-40 active:opacity-100 md:opacity-0 md:group-hover:opacity-100">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
     </button>
 
