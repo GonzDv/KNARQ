@@ -38,3 +38,13 @@ import "../styles/global.css";
 
     </body>
 </html>
+<script>
+  // Escuchamos cuando el usuario intenta abrir el menú contextual (clic derecho)
+  document.addEventListener('contextmenu', function(evento) {
+    // Si el elemento al que le hicieron clic es una imagen (IMG)
+    if (evento.target.tagName === 'IMG') {
+      // Bloqueamos el menú
+      evento.preventDefault();
+    }
+  });
+</script>
