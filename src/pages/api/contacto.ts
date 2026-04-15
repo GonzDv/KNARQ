@@ -13,13 +13,16 @@ export const POST: APIRoute = async ({ request }) => {
 
   // 2. Validación básica de seguridad
   if (!name || !email || !message) {
-    return new Response(JSON.stringify({ error: "Faltan campos obligatorios" }), { status: 400 });
+    return new Response(
+      JSON.stringify({ error: "Faltan campos obligatorios" }),
+      { status: 400 },
+    );
   }
 
   try {
     // 3. Enviamos el correo a través de Resend
     const data = await resend.emails.send({
-      from: "KNARQ Web <onboarding@resend.dev>", // Cambia esto por hola@knarq.mx cuando verifiques tu dominio
+      from: "KNARQ Web <hola@knarq.com>", // Cambia esto por hola@knarq.mx cuando verifiques tu dominio
       to: "geragnzv@gmail.com", // Tu correo donde quieres recibir los mensajes
       subject: `Nuevo proyecto de: ${name}`,
       html: `
@@ -30,9 +33,13 @@ export const POST: APIRoute = async ({ request }) => {
       `,
     });
 
-    return new Response(JSON.stringify({ success: true, data }), { status: 200 });
-
+    return new Response(JSON.stringify({ success: true, data }), {
+      status: 200,
+    });
   } catch (error) {
-    return new Response(JSON.stringify({ error: "Error al enviar el correo" }), { status: 500 });
+    return new Response(
+      JSON.stringify({ error: "Error al enviar el correo" }),
+      { status: 500 },
+    );
   }
 };
