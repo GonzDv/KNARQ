@@ -91,105 +91,44 @@ import Footer from '../components/common/Footer.astro';
 					</div>
 				</div>
 
-				<div
-					class='md:col-span-7 md:col-start-6 gsap-reveal opacity-0 translate-y-8'
-				>
-					<form class='flex flex-col gap-10'>
-						<p class='text-xs uppercase tracking-[0.2em] text-gray-400'>
-							<span class='text-[#1A1B1C]'>*</span> Campos obligatorios
-						</p>
-						<div class='relative'>
-							<label for='name' class='block text-xs uppercase tracking-[0.2em] text-gray-400 mb-2'>
-								Nombre completo <span class='text-[#1A1B1C]'>*</span>
-							</label>
-							<input
-								type='text'
-								id='name'
-								name='name'
-								placeholder='Nombre completo'
-								class='w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg placeholder:text-gray-400'
-								required
-							/>
-						</div>
+				<div class="md:col-span-7 md:col-start-6 gsap-reveal opacity-0 translate-y-8 relative">
+          
+          <form id="contactForm" class="flex flex-col gap-10 transition-opacity duration-500">
+            <div class="relative">
+              <input type="text" id="name" name="name" required placeholder="Nombre completo" 
+                class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg placeholder:text-gray-300" />
+            </div>
 
-						<div class='relative'>
-							<label for='email' class='block text-xs uppercase tracking-[0.2em] text-gray-400 mb-2'>
-								Correo electrónico <span class='text-[#1A1B1C]'>*</span>
-							</label>
-							<input
-								type='email'
-								id='email'
-								name='email'
-								placeholder='Correo electrónico'
-								class='w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg placeholder:text-gray-400'
-								required
-							/>
-						</div>
-						<div class='relative'>
-							<label for='service' class='block text-xs uppercase tracking-[0.2em] text-gray-400 mb-2'>
-								Servicio 
-							</label>
-							<select
-								id='service'
-								name='service'
-								class='w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg text-gray-700'
-								required
-							>
-								<option value='' disabled selected>Selecciona un servicio</option>
-								<option value='arquitectura'>Arquitectura</option>
-								<option value='diseno-interiores'>Diseño de Interiores</option>
-								<option value='remodelacion'>Remodelación</option>
-								<option value='construccion'>Construcción</option>
-							</select>
-						</div>
-						<div>
-							<label for='phone' class='block text-xs uppercase tracking-[0.2em] text-gray-400 mb-2'>
-								Número de teléfono <span class='text-[#1A1B1C]'>*</span>
-							</label>
-							<input
-								type='tel'
-								id='phone'
-								name='phone'
-								placeholder='Número de teléfono'
-								class='w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg placeholder:text-gray-400'
-								required
-							/>
-						</div>
+            <div class="relative">
+              <input type="email" id="email" name="email" required placeholder="Correo electrónico" 
+                class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg placeholder:text-gray-300" />
+            </div>
 
-						<div class='relative'>
-							<textarea
-								id='message'
-								name='message'
-								rows='4'
-								placeholder='Cuéntanos sobre tu proyecto'
-								class='w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg placeholder:text-gray-400 resize-none'
-							></textarea>
-						</div>
+            <div class="relative">
+              <textarea id="message" name="message" required rows="4" placeholder="Cuéntanos sobre tu proyecto" 
+                class="w-full bg-transparent border-b border-gray-200 py-4 outline-none focus:border-[#1A1B1C] transition-colors font-light text-lg placeholder:text-gray-300 resize-none"></textarea>
+            </div>
 
-						<div class='mt-4'>
-							<button
-								type='submit'
-								class='group flex items-center gap-4 px-10 py-4 border border-[#1A1B1C] rounded-full text-sm font-medium tracking-widest uppercase hover:bg-[#1A1B1C] hover:text-white transition-all duration-500'
-							>
-								Enviar mensaje
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									fill='none'
-									viewBox='0 0 24 24'
-									stroke-width='1.5'
-									stroke='currentColor'
-									class='w-4 h-4 transition-transform group-hover:translate-x-2'
-								>
-									<path
-										stroke-linecap='round'
-										stroke-linejoin='round'
-										d='M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3'
-									></path>
-								</svg>
-							</button>
-						</div>
-					</form>
-				</div>
+            <div class="mt-4">
+              <button type="submit" id="submitBtn"
+                class="group flex items-center gap-4 px-10 py-4 border border-[#1A1B1C] rounded-full text-sm font-medium tracking-widest uppercase hover:bg-[#1A1B1C] hover:text-white transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed">
+                <span id="btnText">Enviar mensaje</span>
+                <svg id="btnIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <div id="successMessage" class="absolute inset-0 flex flex-col justify-center items-start opacity-0 pointer-events-none transition-opacity duration-500">
+            <h3 class="text-3xl font-light text-[#1A1B1C] mb-4">Mensaje enviado.</h3>
+            <p class="text-gray-500 font-light leading-relaxed">
+              Gracias por tu interés en KNARQ. <br/>
+              Revisaremos los detalles de tu proyecto y nos pondremos en contacto contigo a la brevedad.
+            </p>
+          </div>
+
+        </div>
 			</div>
 		</section>
 	</main>
@@ -217,4 +156,59 @@ import Footer from '../components/common/Footer.astro';
 
 	initContactAnimations();
 	document.addEventListener('astro:page-load', initContactAnimations);
+
+	document.addEventListener('astro:page-load', () => {
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+    const btnText = document.getElementById('btnText');
+    const successMessage = document.getElementById('successMessage');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Evita que la página se recargue
+
+      // Estado visual de "Cargando"
+      if (submitBtn && btnText) {
+        submitBtn.disabled = true;
+        btnText.textContent = "Enviando...";
+      }
+
+      // Recolectar datos
+      const formData = new FormData(form);
+
+      try {
+        // Enviar al Endpoint de Astro
+        const response = await fetch('/api/contacto', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Animación premium de éxito: Desvanecer formulario, mostrar mensaje
+          form.style.opacity = '0';
+          form.style.pointerEvents = 'none';
+          
+          if (successMessage) {
+            successMessage.style.opacity = '1';
+            successMessage.style.pointerEvents = 'auto';
+          }
+        } else {
+          alert('Hubo un error al enviar el mensaje. Por favor intenta de nuevo.');
+          if (submitBtn && btnText) {
+             submitBtn.disabled = false;
+             btnText.textContent = "Enviar mensaje";
+          }
+        }
+      } catch (error) {
+        alert('Ocurrió un error de conexión.');
+        if (submitBtn && btnText) {
+           submitBtn.disabled = false;
+           btnText.textContent = "Enviar mensaje";
+        }
+      }
+    });
+  });
 </script>
