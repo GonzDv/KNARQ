@@ -16,7 +16,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     const data = await resend.emails.send({
       from: "KNARQ Web <hola@knarq.com>", 
-      to: "knarq.proyectos@gmail.com", 
+      to: "geragnzv@gmail.com", 
       subject: `Nuevo proyecto de: ${name}`,
       html: `
         <!DOCTYPE html>
