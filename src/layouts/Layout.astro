@@ -1,4 +1,7 @@
 ---
+import '@fontsource/outfit/300.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
 interface Props {
   title: string;
   description?: string;
@@ -21,13 +24,34 @@ import "../styles/global.css";
     <title>{title} </title>
     <meta name="description" content={description} />
     
-    <meta property="og:title" content={`| KNARQ`} />
+    <meta property="og:title" content={`| KNARQ_`} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ArchitecturalFirm",
+  "name": "KNARQ_",
+  "image": "https://www.knarq.com/LOGO-KN.png",
+  "@id": "https://www.knarq.com",
+  "url": "https://www.knarq.com",
+  "telephone": "+524425926744",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Querétaro",
+    "addressRegion": "QRO",
+    "addressCountry": "MX"
+  },
+  "sameAs": [
+    "https://www.instagram.com/knarq_/",
+    "https://www.behance.net/knarq__"
+  ]
+}
+</script>
   </head>
   
   <body class="">

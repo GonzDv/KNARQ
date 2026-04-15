@@ -21,6 +21,7 @@ import projects from '../../data/project.json';
               class="w-full h-full object-cover md:object-contain drop-shadow-none md:drop-shadow-2xl"
               loading={index === 0 ? "eager" : "lazy"}
               draggable="false"
+              fetchpriority="high"  loading="eager"
             />
             </a>
             <div class="absolute inset-0 z-20 bg-transparent block md:hidden [-webkit-touch-callout:none]" oncontextmenu="return false;"></div>
@@ -42,11 +43,11 @@ import projects from '../../data/project.json';
       </div>
     ))}
 
-    <button id="prevBtn" class="absolute left-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all duration-300 bg-white/50 backdrop-blur-sm z-50 md:left-8 opacity-40 active:opacity-100 md:opacity-0 md:group-hover:opacity-100">
+    <button id="prevBtn" aria-label="Ver imagen anterior" class="absolute left-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all duration-300 bg-white/50 backdrop-blur-sm z-50 md:left-8 opacity-40 active:opacity-100 md:opacity-0 md:group-hover:opacity-100">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
     </button>
     
-    <button id="nextBtn" class="absolute right-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all duration-300 bg-white/50 backdrop-blur-sm z-50 md:right-8 opacity-40 active:opacity-100 md:opacity-0 md:group-hover:opacity-100">
+    <button id="nextBtn" aria-label="Ver imagen siguiente" class="absolute right-4 top-[40%] md:top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full border border-black/10 text-black hover:bg-black hover:text-white transition-all duration-300 bg-white/50 backdrop-blur-sm z-50 md:right-8 opacity-40 active:opacity-100 md:opacity-0 md:group-hover:opacity-100">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
     </button>
 
