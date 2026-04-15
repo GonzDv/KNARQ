@@ -238,60 +238,44 @@ import Footer from "../components/common/Footer.astro";
   }
 
   initContactAnimations();
-  document.addEventListener("astro:page-load", initContactAnimations);
-
-  document.addEventListener("astro:page-load", () => {
-    const form = document.getElementById("contactForm") as HTMLFormElement;
-    const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
-    const btnText = document.getElementById("btnText");
-    const successMessage = document.getElementById("successMessage");
-
+  document.addEventListener('astro:page-load', () => {
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    
     if (!form) return;
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault(); // Evita que la página se recargue
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // <--- ESTO ES LO MÁS IMPORTANTE: Detiene el cambio de URL
+      e.stopPropagation();
 
-      // Estado visual de "Cargando"
-      if (submitBtn && btnText) {
-        submitBtn.disabled = true;
-        btnText.textContent = "Enviando...";
-      }
-
-      // Recolectar datos
+      const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
       const formData = new FormData(form);
 
+      // Cambiamos el texto del botón para saber que el código sí arrancó
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "ENVIANDO...";
+      }
+
       try {
-        // Enviar al Endpoint de Astro
-        const response = await fetch("/api/contacto", {
-          method: "POST",
+        const response = await fetch('/api/contacto', {
+          method: 'POST',
           body: formData,
         });
 
         const result = await response.json();
 
         if (result.success) {
-          // Animación premium de éxito: Desvanecer formulario, mostrar mensaje
-          form.style.opacity = "0";
-          form.style.pointerEvents = "none";
-
-          if (successMessage) {
-            successMessage.style.opacity = "1";
-            successMessage.style.pointerEvents = "auto";
-          }
+          // Si todo sale bien, ocultamos el formulario
+          form.classList.add('opacity-0', 'pointer-events-none');
+          document.getElementById('successMessage')?.classList.remove('opacity-0');
         } else {
-          alert(
-            "Hubo un error al enviar el mensaje. Por favor intenta de nuevo.",
-          );
-          if (submitBtn && btnText) {
-            submitBtn.disabled = false;
-            btnText.textContent = "Enviar mensaje";
-          }
+          throw new Error();
         }
       } catch (error) {
-        alert("Ocurrió un error de conexión.");
-        if (submitBtn && btnText) {
+        alert('Error al enviar. Revisa la consola del navegador (F12).');
+        if (submitBtn) {
           submitBtn.disabled = false;
-          btnText.textContent = "Enviar mensaje";
+          submitBtn.innerText = "REINTENTAR ENVÍO";
         }
       }
     });
