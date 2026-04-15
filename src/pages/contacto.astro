@@ -61,8 +61,8 @@ import Footer from "../components/common/Footer.astro";
               <div class="flex justify-center items-center gap-2">
                 <svg
                   fill="#000000"
-                  width="24x"
-                  height="24px"
+                  width="24"
+                  height="24"
                   viewBox="0 0 256 256"
                   id="Flat"
                   xmlns="http://www.w3.org/2000/svg"
@@ -79,8 +79,8 @@ import Footer from "../components/common/Footer.astro";
               </div>
               <div class="flex justify-center items-center gap-2">
                 <svg
-                  width="24px"
-                  height="24px"
+                  width="24"
+                  height="24"
                   viewBox="0 0 48 48"
                   xmlns="http://www.w3.org/2000/svg"
                   ><defs
@@ -237,29 +237,36 @@ import Footer from "../components/common/Footer.astro";
     }
   }
 
+  // 1. Iniciamos las animaciones de GSAP de inmediato
   initContactAnimations();
-  document.addEventListener('astro:page-load', () => {
-    const form = document.getElementById('contactForm') as HTMLFormElement;
-    
-    if (!form) return;
 
+  // 2. Lógica del Formulario (Vanilla JS puro)
+  const form = document.getElementById('contactForm') as HTMLFormElement;
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+  const btnText = document.getElementById('btnText') as HTMLSpanElement; // Apuntamos solo al texto
+  const successMessage = document.getElementById('successMessage');
+
+  if (form) {
     form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // <--- ESTO ES LO MÁS IMPORTANTE: Detiene el cambio de URL
+      e.preventDefault(); // Detiene la recarga de página y URL
       e.stopPropagation();
 
-      const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
       const formData = new FormData(form);
+      const dataObject = Object.fromEntries(formData.entries());
 
-      // Cambiamos el texto del botón para saber que el código sí arrancó
-      if (submitBtn) {
+      if (submitBtn && btnText) {
         submitBtn.disabled = true;
-        submitBtn.innerText = "ENVIANDO...";
+        btnText.innerText = "ENVIANDO...";
       }
 
       try {
+        // Lo enviamos empaquetado como JSON puro
         const response = await fetch('/api/contacto', {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'application/json', // Le decimos a Astro exactamente qué es
+          },
+          body: JSON.stringify(dataObject), 
         });
 
         const result = await response.json();
@@ -267,17 +274,23 @@ import Footer from "../components/common/Footer.astro";
         if (result.success) {
           // Si todo sale bien, ocultamos el formulario
           form.classList.add('opacity-0', 'pointer-events-none');
-          document.getElementById('successMessage')?.classList.remove('opacity-0');
+          
+          if (successMessage) {
+            successMessage.classList.remove('opacity-0', 'pointer-events-none');
+            successMessage.classList.add('opacity-100', 'pointer-events-auto');
+          }
         } else {
-          throw new Error();
+          throw new Error('El servidor devolvió un error');
         }
       } catch (error) {
-        alert('Error al enviar. Revisa la consola del navegador (F12).');
-        if (submitBtn) {
+        console.error(error);
+        alert('Error al enviar. Revisa la conexión o intenta más tarde.');
+        
+        if (submitBtn && btnText) {
           submitBtn.disabled = false;
-          submitBtn.innerText = "REINTENTAR ENVÍO";
+          btnText.innerText = "ENVIAR MENSAJE"; // Restauramos el botón
         }
       }
     });
-  });
+  }
 </script>
