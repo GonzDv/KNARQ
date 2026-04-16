@@ -4,7 +4,9 @@ import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
 ---
 
-<Layout title="Contacto | KNARQ_">
+<Layout title="Contacto | KNARQ_"
+  description={project.description}
+  image={project.images.hero} >
   <Header />
 
   <main class="w-full min-h-screen bg-white pb-32">
