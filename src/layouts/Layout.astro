@@ -1,72 +1,63 @@
 ---
-import '@fontsource/outfit/300.css';
-import '@fontsource/outfit/400.css';
-import '@fontsource/outfit/500.css';
+import "@fontsource/outfit/300.css";
+import "@fontsource/outfit/400.css";
+import "@fontsource/outfit/500.css";
+import SEO from "../components/common/SEO.astro";
 interface Props {
   title: string;
   description?: string;
 }
 
-const { 
-  title, 
-  description = "Estudio de Arquitectura y Diseño Contemporáneo." 
+const {
+  title,
+  description = "Estudio de Arquitectura y Diseño Contemporáneo.",
 } = Astro.props;
 import "../styles/global.css";
 ---
 
 <html lang="es" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/LOGO-KN.png" />
-    <meta name="generator" content={Astro.generator} />
-    
-    <title>{title} </title>
-    <meta name="description" content={description} />
-    
-    <meta property="og:title" content={`${title} | KNARQ_`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <SEO title={title} description={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ArchitecturalFirm",
-  "name": "KNARQ_",
-  "image": "https://www.knarq.com/LOGO-KN.png",
-  "@id": "https://www.knarq.com",
-  "url": "https://www.knarq.com",
-  "telephone": "+524425926744",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Querétaro",
-    "addressRegion": "QRO",
-    "addressCountry": "MX"
-  },
-  "sameAs": [
-    "https://www.instagram.com/knarq_/",
-    "https://www.behance.net/knarq__"
-  ]
-}
-</script>
+      {
+        "@context": "https://schema.org",
+        "@type": "ArchitecturalFirm",
+        "name": "KNARQ_",
+        "image": "https://www.knarq.com/LOGO-KN.png",
+        "@id": "https://www.knarq.com",
+        "url": "https://www.knarq.com",
+        "telephone": "+524425926744",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Querétaro",
+          "addressRegion": "QRO",
+          "addressCountry": "MX"
+        },
+        "sameAs": [
+          "https://www.instagram.com/knarq_/",
+          "https://www.behance.net/knarq__"
+        ]
+      }
+    </script>
   </head>
-  
+
   <body class="">
-    
     <main>
       <slot />
     </main>
-
-    </body>
+  </body>
 </html>
 <script>
   // Escuchamos cuando el usuario intenta abrir el menú contextual (clic derecho)
-  document.addEventListener('contextmenu', function(evento) {
+  document.addEventListener("contextmenu", function (evento) {
     // Si el elemento al que le hicieron clic es una imagen (IMG)
-    if (evento.target.tagName === 'IMG') {
+    if (evento.target.tagName === "IMG") {
       // Bloqueamos el menú
       evento.preventDefault();
     }

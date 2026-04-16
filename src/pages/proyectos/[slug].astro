@@ -15,7 +15,10 @@ const { project } = Astro.props;
 const isConcretoHero = project.slug === 'casa-concreto';
 ---
 
-<Layout title={`${project.title} | KNARQ`}>
+<Layout 
+  title={`${project.title} | KNARQ_`} 
+  description={project.description}
+  image={project.images.hero} >
   <Header />
 
   <main class="w-full bg-white pb-32">
