@@ -1,46 +1,21 @@
-# Astro Starter Kit: Basics
+# 🏛️ KNARQ.com - Portafolio Arquitectónico Premium
 
-```sh
-npm create astro@latest -- --template basics
-```
+![Estado del Proyecto](https://img.shields.io/badge/Estado-En_Desarrollo-success)
+![UI/UX](https://img.shields.io/badge/UI%2FUX-Optimizada-blue)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+KNARQ.com es una plataforma web de alto rendimiento diseñada para exhibir proyectos y obras arquitectónicas. Construida con un enfoque en la experiencia de usuario (UX), diseño fluido (mobile-first) y protección de activos visuales.
 
-## 🚀 Project Structure
+## ✨ Características Principales (Features)
 
-Inside of your Astro project, you'll see the following folders and files:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- **🔒 Candados de Disuasión (Asset Protection):** Sistema de seguridad implementado en el frontend para proteger las fotografías y renders de alta resolución, bloqueando el menú contextual (clic derecho) y la acción de arrastrar y soltar (drag & drop).
+- **✉️ Integración de Correo:** Formulario de contacto funcional conectado a un servicio de envío de correos para agendar citas o consultas.
+- **⚡ Layout Responsivo:** Arquitectura de componentes que incluye un Navbar dinámico para móviles, sección Hero con enrutamiento y Footer personalizado.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🛠️ Stack Tecnológico
 
-## 🧞 Commands
+* **Frontend:** [ Astro / Vanilla JS] 
+* **Estilos:** Tailwind CSS
+* **Despliegue:** [Vercel / Netlify / GitHub Pages]
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
