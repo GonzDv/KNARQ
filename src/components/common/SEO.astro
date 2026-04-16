@@ -1,20 +1,18 @@
 ---
-// src/components/common/SEO.astro
 interface Props {
     title: string;
     description: string;
-    image?: string; // Opcional, para usar una por defecto si no hay
+    image?: string;
     canonicalURL?: string;
 }
 
 const { 
     title, 
     description, 
-    image = '/LOGO-KN.png', // Imagen por defecto de la marca
+    image = '/LOGO-KN.png', 
     canonicalURL = Astro.url.href 
 } = Astro.props;
 
-// Nos aseguramos de que la URL de la imagen sea absoluta para que las redes la lean bien
 const socialImageURL = new URL(image, Astro.site);
 ---
 
